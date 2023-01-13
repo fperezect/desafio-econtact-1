@@ -8,22 +8,38 @@
     padding: 10px;
 }
 
-h1 {
-    padding-top: 30px;
-    background-color: rgb(44, 153, 163);
-    margin: -8px;
-   margin-top:0%
-}
+
 
 #subtitulo{
     text-align: center;
     color: white;
-   
+    padding-top: 45px;
+    background-color: rgb(44, 153, 163);
+    margin: -8px;
+   margin-top:0%
+}
+#descripcionsubtitulo{
+  text-align:center;
+  color:black;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color: rgb(44, 153, 163);
+  margin: -8px;
+  line-height:30px;
 }
 
 #subtitulosazul{
     color: rgb(33, 111, 177);
     text-align: center;
+}
+
+
+
+#descripcionsubtituloazul{
+  text-align: center;
+  color: rgb(122, 122, 122);
 }
 
 #pregunta{
@@ -40,9 +56,47 @@ h1 {
 
 #respuesta{
     text-align:justify;
-    line-height:30px
+    line-height:30px;
 
 }
+
+#respuestacontenedor2{
+  text-align:center;
+  line-height:15px;
+
+}
+
+#boton{
+  background-color: white;
+  color: rgb(33, 111, 177);
+  padding: 7px 10px;
+  border-radius: 15px;
+  border-width: 0px;
+  font-size: 12px;
+  font-weight:bolder;
+}
+
+#botonContacto{
+  background-color: white;
+  color: rgb(33, 111, 177);
+  padding: 7px 10px;
+  border-radius: 10px;
+  border-width: 0px;
+  font-size: 12px;
+  font-weight:bolder;
+}
+
+#Facebook{
+  width: 70px; 
+  height: 50px;
+  padding-bottom: 10px;
+}
+
+#Instagram{
+  width: 70px; 
+  height: 70px;
+}
+
 
 lightertext {   
     font-weight:lighter;
@@ -56,15 +110,22 @@ subrayado {
     text-decoration: underline;
 }
 
+bold {   
+  font-weight:bolder;
+}
+
 
 #contenedor {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
-    width: 85%;
+    width: 75%;
     margin: 0 auto;
+    padding-top: 45px;
+    padding-bottom: 20px;
     border-bottom: 2px solid rgb(219, 209, 209);
+    gap: 20px;
     align-items:center;
   }
   
@@ -75,7 +136,8 @@ subrayado {
   
   #contenedor .seccion1 {
     background-color: white;
-
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   
   #contenedor .seccion2 {
@@ -83,12 +145,40 @@ subrayado {
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform: scale(0.80);
+    flex-basis: 45%;
     min-height: 380px;
-    min-width: 545px;
-    border-radius: 10px;
+  
 
   }
+
+  #contenedor2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 45px;
+    padding-bottom: 20px;
+    gap: 70px;
+    align-items:center;
+  }
+  
+  #contenedor2 .seccion {
+    flex-basis: 25%;
+    background-color: rgb(33, 111, 177);
+    text-align: center;
+    border-radius: 15px;
+    color: white;
+    font-weight:lighter;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    min-width: 300px;
+    min-height: 153px;
+  }
+  
   
   @media (max-width: 850px) {
     #contenedor {
@@ -99,4 +189,70 @@ subrayado {
       width: 80%;
       margin: 0 auto;
     }
+    #contenedor2 .seccion {
+      width: 80%;
+      margin: 0 auto;
+    }
   }
+
+  #botones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width: 12%;
+    margin: 0 auto;
+    padding-top: 45px;
+    padding-bottom: 0px;
+    gap: 0px;
+    align-items:center;
+  }
+  
+  #botones .seccion {
+    flex-basis: 25%;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+  }
+
+  #piedepagina {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width: 101%;
+
+    padding-top: 60px;
+    padding-bottom: 20px;
+    gap: 70px;
+    align-items:center;
+    background-image: url(https://www.e-contact.cl/wp-content/uploads/2021/02/Recurso-2ec.png);
+    background-color: rgb(33, 111, 177);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -8px;
+
+  }
+  
+  #piedepagina .seccion {
+    flex-basis: 10%;
+    text-align: center;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-width: 300px;
+    min-height: 153px;
+    line-height:20px;
+  }
+
+  @media (max-width: 1024px)
+  {
+    #piedepagina{
+    padding: 30px 10px 30px 10px;
+  }
+}
