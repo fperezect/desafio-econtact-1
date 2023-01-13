@@ -50,14 +50,41 @@ const objetoFijo = {
  *? RECORDATORIO: al leer la sentencia "return" termina la ejecución de la función.
  */
 
-function largoDelNombre(nombre = "") {}
+ function largoDelNombre(nombre = "") {
+  const largonombre = nombre.length;
+  if (typeof nombre === 'string') {
+    if ( largonombre <= 5){
+      return `Es un nombre corto. Su largo es de: ${largonombre}`;
+  }
+  else{
+    if (largonombre >= 11)
+    return `Es un nombre largo. Su largo es de: ${largonombre}`;
+  }
+ }
+  else {
+    return `El parámetro recibido es invalido`
+  }
+  }
+  console.log("Ejercicio1: " + largoDelNombre(nombre = "Maximiliano"))
+
+
 //! =======================================================================================================================================================
 
 /**
  *? EJERCICIO 2: Crear una función que reciba un arreglo como parámetro y cuente cuantos valores de tipo "number" se encuentran dentro de dicho arreglo
  */
 
-function contarTipoNumber(arreglo = []) {}
+function contarTipoNumber(arreglo = []) {
+  var count = 0;
+  for (var i = 0; i < arreglo.length; i++) {
+    var tipodedatos = (typeof arreglo[i]);
+    if(tipodedatos === 'number'){
+      count++;
+    }
+  }
+  return count
+}
+console.log("Ejercicio2: " + contarTipoNumber([1, 2, "tres", 4, 5, "string",7]));
 //! =======================================================================================================================================================
 
 /**
@@ -66,7 +93,13 @@ function contarTipoNumber(arreglo = []) {}
  *? NOTA: Desestructurar los valores del objeto antes de utilizarlos
  */
 
-function datosPersona(persona = {}) {}
+function datosPersona(persona = {}) {
+  const nombre = persona.nombre;
+  const edad = persona.edad;
+  const altura = persona.altura;
+  return `Esta persona se llama ${nombre}, tiene ${edad} años y su altura es de ${altura}`;
+}
+console.log("Ejercicio3: " + datosPersona(persona = {nombre: "Francisco", edad: 35, altura: 1.87}))
 //! =======================================================================================================================================================
 
 /**
@@ -75,7 +108,19 @@ function datosPersona(persona = {}) {}
  *?
  */
 
-function obtenerCantidadDePares(numero1, numero2) {}
+function obtenerCantidadDePares(numero1, numero2) {
+  const rango = numero2 - numero1;
+  var numero = numero1;
+  var count = 0;
+  for (var i = 0; i <= rango; i++) {
+    if(numero%2==0){
+      count++;
+    }
+    numero++;
+  }
+  return `${count}`
+}
+console.log("Ejercicio4: " + obtenerCantidadDePares(6,15))
 //! =======================================================================================================================================================
 
 /**
@@ -86,7 +131,11 @@ function obtenerCantidadDePares(numero1, numero2) {}
  *?
  */
 
-function obtenerCantidadDeSedes(econtact = {}) {}
+function obtenerCantidadDeSedes(econtact = {}) {
+  return Object.keys(econtact.datos.sedes).length;
+  }
+
+  console.log("Ejercicio5: " + obtenerCantidadDeSedes(objetoFijo))
 //! =======================================================================================================================================================
 
 /**
@@ -94,7 +143,18 @@ function obtenerCantidadDeSedes(econtact = {}) {}
  *? Validar al inicio de la función si el teléfono de Perú existe. Caso contrario retornar un string que diga "Perú no tiene asignado un teléfono"
  */
 
-function obtenerTelefonoPeru(econtact = {}) {}
+function obtenerTelefonoPeru(econtact = {}) {
+var numeroperu = econtact.datos.sedes.Peru.telefono;
+if(numeroperu !== undefined ){
+  return `${numeroperu}`
+  
+}
+else{
+  return `Perú no tiene asignado un teléfono`
+}
+}
+
+console.log("Ejercicio6: " + obtenerTelefonoPeru(objetoFijo))
 //! =======================================================================================================================================================
 
 /**
@@ -102,7 +162,11 @@ function obtenerTelefonoPeru(econtact = {}) {}
  *?
  */
 
-function obtenerPaisesConTelefono(econtact = {}) {}
+function obtenerPaisesConTelefono(econtact = {}) {
+  return Object.values(econtact.datos.sedes).filter(pais => pais.telefono !== null).length;
+}
+  
+console.log("Ejercicio7: " + obtenerPaisesConTelefono(objetoFijo))
 //! =======================================================================================================================================================
 
 /**
@@ -116,7 +180,35 @@ function obtenerPaisesConTelefono(econtact = {}) {}
  *? En caso contrario, retornar un string con la frase "La operación matemática que intenta realizar es inexistente"
  */
 
-function calculoMatematico(operacion, numero1, numero2) {}
+function calculoMatematico(operacion, numero1, numero2) {
+  switch(operacion){
+    case "+":
+      resultado = numero1+numero2;
+      break;
+    
+    case "-":
+      resultado = numero1-numero2;
+      break;
+
+    case "*":
+      resultado = numero1*numero2;
+      break;
+    
+    case "/":
+      if(numero2 !== 0){
+        resultado = numero1/numero2;
+      }
+      else{
+        return "No se puede dividir por cero"
+      }
+      break;
+    default:
+      return `La operación matemática que intenta realizar es inexistente`;
+  }
+return `${resultado}`
+}
+
+console.log("Ejercicio8: " + calculoMatematico("/",15,3))
 //! =======================================================================================================================================================
 
 /**
@@ -126,7 +218,16 @@ function calculoMatematico(operacion, numero1, numero2) {}
  *? Ayuda: usar ciclo while y recordar el método "push" para ir agregando valores al arreglo
  */
 
-function cargarArreglo(numero) {}
+function cargarArreglo(numero) {
+var numeros = [];
+var i = numero;
+while (i <= numero*2){
+  numeros.push(i);
+  i++;
+}
+return numeros;
+}
+console.log("Ejercicio9: " + cargarArreglo(10))
 //! =======================================================================================================================================================
 
 /**
@@ -135,7 +236,17 @@ function cargarArreglo(numero) {}
  *?  Ayuda: Usar el operador módulo (o resto) "%"
  */
 
-function divisiblesPorCinco(numeros = []) {}
+function divisiblesPorCinco(numeros = []) {
+var count = 0;
+for (var i = 0; i < numeros.length; i++) {
+    var resto =  numeros[i] % 5;
+    if(resto === 0){
+      count++;
+    }
+  }
+  return count;
+}
+console.log("Ejercicio10: " + divisiblesPorCinco([10,4,15,6]))
 //! =======================================================================================================================================================
 
 /**
@@ -144,7 +255,15 @@ function divisiblesPorCinco(numeros = []) {}
  *?
  */
 
-function sumatoria(numeros = []) {}
+function sumatoria(numeros = []) {
+var resultado = 0;
+for (var i = 0; i < numeros.length; i++) {
+  var resultado =  resultado + numeros[i];
+}
+return resultado;
+
+}
+console.log(`Ejercicio11: ${sumatoria([10, 4, 15, 6])}`)
 //! =======================================================================================================================================================
 
 /**
@@ -153,7 +272,23 @@ function sumatoria(numeros = []) {}
  *? La función debe retornar True si son iguales, o False en caso de no ser iguales
  */
 
-function verificarCantidadEmpleados(econtact = {}) {}
+function verificarEmpleados(econtact = {}) {
+ var total = econtact.datos.empleados;
+ var resultado = 0;
+ var sedes = Object.values(econtact.datos.sedes);
+
+for (var i = 0; i < sedes.length; i++) {
+ var pais = sedes[i]
+ var resultado = pais.empleados + resultado
+  }
+if (total-resultado == 0){
+    return true
+  }
+  else{
+    return false
+  }
+}
+console.log("Ejercicio12: " + verificarEmpleados(objetoFijo))
 //! =======================================================================================================================================================
 
 /**
@@ -165,7 +300,21 @@ function verificarCantidadEmpleados(econtact = {}) {}
  *? console.log(Math.pow(5, 2))
  */
 
-function calcularCuadrados(arreglo = []) {}
+function calcularCuadrados(arreglo = []) {
+var count = 0;
+var numeros = Object.values(arreglo);
+var resultado = []
+
+for (var i = 0; i < numeros.length; i++) {
+  var numero = arreglo[i]**2;
+  resultado.push(numero);
+
+   }
+
+return resultado
+
+}
+console.log("Ejercicio13: " + calcularCuadrados(arregloFijo))
 //! =======================================================================================================================================================
 
 /**
@@ -175,7 +324,30 @@ function calcularCuadrados(arreglo = []) {}
  *? Validar al inicio de la función que el arreglo cuente con la condición establecida. Si no cumple la misma, retornar False
  */
 
-function validarArreglo(numeros = []) {}
+function validarArreglo(numeros = []) {
+var cantidad = Object.values(numeros).length;
+var resultado = 0
+if(cantidad >= 6){
+  for (var i = 0; i < cantidad; i++) {
+    var numero = numeros[i];
+    resultado = numero + resultado;
+  
+     }
+  
+  if(resultado > 100){
+    return true
+  }
+  
+  else{
+    return false
+  }
+}
+else{
+  return "La cantidad minima de números es 6"
+}
+
+}
+console.log("Ejercicio14: " + validarArreglo([10,20,30,4,5,6,1]))
 //! =======================================================================================================================================================
 
 /**
@@ -184,14 +356,43 @@ function validarArreglo(numeros = []) {}
  *? Recordar que Javascript es "Case Sensitive", es decir, distingue entre mayúsculas y minúsculas.
  */
 
-function validarNombre(nombres = [], nombre) {}
+function validarNombre(nombres = [], nombre) {
+  var valoresnombres = Object.values(nombres);
+
+  for (var i = 0; i < valoresnombres.length; i++) {
+    
+    if(valoresnombres[i]==nombre){
+      resultado = true
+    }
+    else{
+      resultado = false
+    }
+  
+     }
+     return resultado
+}
+console.log("Ejercicio15: " + validarNombre(["Julieta","Paula","Maria","Sophia","Francisco"], "Francisco"))
+
 //! =======================================================================================================================================================
 
 /**
  *? EJERCICIO 16: Crear una función que reciba 2 (dos) parámetros: un arreglo de números y número. La función debe retornar la posición de ese valor en el arreglo
  */
 
-function devolverPosicion(numeros = [], numero) {}
+function devolverPosicion(numeros = [], numero) {
+var count = 0;
+for (var i = 0; i < numeros.length; i++) {
+    
+  if(numeros[i]==numero){
+    return count + 1;
+  }
+  else{
+    count++;
+  }
+
+   }
+}
+console.log("Ejercicio16: " + devolverPosicion([1,3,2,4,6,5], 4))
 //! =======================================================================================================================================================
 
 /**
@@ -199,7 +400,16 @@ function devolverPosicion(numeros = [], numero) {}
  *? dentro de los sectores de E-Contact. Caso contrario, retornar False
  */
 
-function verificarSector(econtact = {}, sector) {}
+function verificarSector(econtact = {}, sector) {
+  var sectores = Object.values(econtact.datos.sectores);
+  for (var i = 0; i < sectores.length; i++){
+    if(sectores[i]==sector){
+      return true;
+    }  
+     }
+     return false;
+}
+console.log("Ejercicio17: " + verificarSector(objetoFijo, "Informática"))
 //! =======================================================================================================================================================
 
 /**
@@ -207,7 +417,19 @@ function verificarSector(econtact = {}, sector) {}
  *? La función debe retornar la cantidad de sedes que tengan una cantidad de empleados menor a la cantidad establecida como segundo parámetro.
  */
 
-function verificarCantidadEmpleados(econtact = {}, cantidad) {}
+function verificarCantidadEmpleados(econtact = {}, cantidad) {
+var count = 0;
+var sedes = Object.values(econtact.datos.sedes)
+  for (var i = 0; i < sedes.length; i++){
+    var pais = sedes[i]
+    var empsede = pais.empleados;
+    if(empsede < cantidad){
+      count++;
+    }
+  }
+return count;
+}
+console.log("Ejercicio18: " + verificarCantidadEmpleados(objetoFijo, 30))
 //! =======================================================================================================================================================
 
 /**
@@ -218,7 +440,16 @@ function verificarCantidadEmpleados(econtact = {}, cantidad) {}
  *?
  */
 
-function verificarClave(objeto = {}, clave) {}
+function verificarClave(objeto = {}, clave) {
+  var objetos = Object.getOwnPropertyNames(objeto);
+  for (var i = 0; i < objetos.length; i++){
+    if(objetos[i]==clave){
+      return true;
+    }
+  }
+return false;
+}
+console.log("Ejercicio19: " + verificarClave(objeto={nombre: 'Juan', edad: 35, profesion: 'programador'}, "altura"))
 //! =======================================================================================================================================================
 
 /**
@@ -226,4 +457,14 @@ function verificarClave(objeto = {}, clave) {}
  *? Recordatorio: al inicio hay un arreglo de numeros reales como ejemplo.
  */
 
-function quitarParteDecimal(arregloNumerosReales = []) {}
+function quitarParteDecimal(arregloNumerosReales = []) {
+  var NumerosReales = Object.values(arregloNumerosReales);
+  var NumerosSinDecimal = [];
+  for (var i = 0; i < NumerosReales.length; i++){
+    var numero = NumerosReales[i];
+    NumerosSinDecimal.push(numero.toFixed(0));
+
+ }
+  return NumerosSinDecimal;
+}
+console.log("Ejercicio20: " + quitarParteDecimal(numerosReales))

@@ -1,0 +1,102 @@
+#titulo {
+    text-align: center;  
+    background-color: rgb(33, 111, 177);
+    text-shadow: 2px 2px 3px rgb(0, 0, 0);
+    color: white;
+    margin: -8px;  
+    margin-bottom: auto; 
+    padding: 10px;
+}
+
+h1 {
+    padding-top: 30px;
+    background-color: rgb(44, 153, 163);
+    margin: -8px;
+   margin-top:0%
+}
+
+#subtitulo{
+    text-align: center;
+    color: white;
+   
+}
+
+#subtitulosazul{
+    color: rgb(33, 111, 177);
+    text-align: center;
+}
+
+#pregunta{
+    background-color: rgb(57, 57, 59);
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    font-weight:lighter;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#respuesta{
+    text-align:justify;
+    line-height:30px
+
+}
+
+lightertext {   
+    font-weight:lighter;
+}
+
+cursiva {
+    font-style: italic;
+}
+
+subrayado {
+    text-decoration: underline;
+}
+
+
+#contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width: 85%;
+    margin: 0 auto;
+    border-bottom: 2px solid rgb(219, 209, 209);
+    align-items:center;
+  }
+  
+  #contenedor .seccion {
+    flex-basis: 45%;
+
+  }
+  
+  #contenedor .seccion1 {
+    background-color: white;
+
+  }
+  
+  #contenedor .seccion2 {
+    background-image: url("https://www.e-contact.cl/wp-content/uploads/2022/06/Recurso-34.png");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(0.80);
+    min-height: 380px;
+    min-width: 545px;
+    border-radius: 10px;
+
+  }
+  
+  @media (max-width: 850px) {
+    #contenedor {
+      flex-direction: column;
+    }
+  
+    #contenedor .seccion {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
